@@ -1,54 +1,56 @@
-# Khushi Portfolio - React.js
+# Khushi Jha - Portfolio
 
-A modern, responsive portfolio website built with React.js showcasing Khushi Jha's projects and skills.
+A modern, interactive portfolio website with space theme and astronaut-style background.
 
 ## Features
-- Modern React.js application
-- Responsive design with animations
-- Interactive project showcase
-- GitHub stats integration
-- Contact form and social links
+
+- 🚀 **Space Theme** - Cosmic background with twinkling stars and shooting stars
+- 📸 **Photo Upload** - Click profile circle to upload your photo
+- ⌨️ **Typing Animation** - Dynamic title changes
+- 📊 **Animated Counters** - GitHub stats count up on load
+- 🎨 **Interactive Elements** - Hover effects and smooth animations
+- 📱 **Responsive Design** - Works on all devices
+
+## Tech Stack
+
+- React.js
+- CSS3 Animations
+- Modern JavaScript (ES6+)
 
 ## Getting Started
 
-### Prerequisites
-- Node.js (version 14 or higher)
-- npm or yarn
+1. Navigate to project folder:
+```bash
+cd portfolio_Khushi
+```
 
-### Installation
-1. Clone the repository
 2. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Start the development server:
+3. Start development server:
 ```bash
 npm start
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-### Build for Production
+## Customization
+
+- **Upload Photo**: Click the "KJ" circle to upload your profile picture
+- **Colors**: Professional blue theme with butterscotch name color
+- **Content**: Update projects, skills, and contact info in `App.js`
+
+## Deployment
+
+Build for production:
 ```bash
 npm run build
 ```
 
-## Technologies Used
-- React.js 18
-- HTML5 & CSS3
-- Modern CSS animations
-- Responsive design
-- ES6+ JavaScript
+Deploy the `build` folder to your hosting platform.
 
-## Deployment
-The app can be deployed to:
-- Vercel
-- Netlify
-- GitHub Pages
-- Any static hosting service
+---
 
-## Contact
-- Email: khushijha671@gmail.com
-- LinkedIn: [Khushi Jha](http://www.linkedin.com/in/khushi-jha-1b7a68386)
-- GitHub: [khushhjha](https://github.com/khushhjha)
+Built with ❤️ by Khushi Jha
