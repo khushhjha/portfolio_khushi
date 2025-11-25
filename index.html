@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khushi Jha - Portfolio</title>
+    <style>
+        :root{
+          --bg:#0f1419;
+          --card:#1e2a3a;
+          --text:#ffffff;
+          --muted:#94a3b8;
+          --accent:#3b82f6;
+          --accent2:#1d4ed8;
+          --border:#334155;
+          --gradient:linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+          --glow:0 0 20px rgba(59,130,246,0.3);
+        }
+        *{box-sizing:border-box;margin:0;padding:0}
+        body{font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#000000;color:var(--text);line-height:1.6;overflow-x:hidden;position:relative}
+        body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at top, #1a1a2e 0%, #16213e 25%, #0f0f23 50%, #000000 100%), radial-gradient(circle at 20% 30%, rgba(138,43,226,0.3) 0%, transparent 40%), radial-gradient(circle at 80% 70%, rgba(75,0,130,0.2) 0%, transparent 50%), radial-gradient(circle at 40% 80%, rgba(25,25,112,0.3) 0%, transparent 60%);pointer-events:none;z-index:-2;animation:cosmicShift 20s ease-in-out infinite alternate}
+        .container{max-width:800px;margin:0 auto;padding:0 20px}
+        .time{position:fixed;top:20px;left:20px;font-size:14px;color:var(--accent);font-weight:600;background:rgba(0,0,0,0.8);padding:8px 16px;border-radius:20px;border:1px solid var(--border);backdrop-filter:blur(10px);z-index:1000}
+        .profile-header{padding:100px 0 80px;text-align:center;background:linear-gradient(135deg, rgba(59,130,246,0.1) 0%, rgba(29,78,216,0.1) 100%);position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+        .profile-picture{margin-bottom:40px;animation:float 3s ease-in-out infinite;position:relative}
+        .profile-img{background:linear-gradient(135deg, #3b82f6, #1d4ed8);border-radius:50%;width:180px;height:180px;display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:bold;color:#ffffff;margin:0 auto;border:3px solid var(--accent);box-shadow:var(--glow), 0 20px 40px rgba(0,0,0,0.5);transition:all 0.3s ease;filter:brightness(1.1);cursor:pointer;position:relative;overflow:hidden}
+        .profile-img:hover{transform:scale(1.1) rotate(5deg);box-shadow:0 0 30px rgba(59,130,246,0.5), 0 25px 50px rgba(0,0,0,0.7)}
+        .profile-header h1{font-size:48px;font-weight:900;margin-bottom:15px;color:#daa520;text-shadow:0 0 10px rgba(218,165,32,0.5);animation:glow 2s ease-in-out infinite alternate;position:relative}
+        .location{color:var(--muted);margin-bottom:20px}
+        .schedule-btn{background:var(--gradient);color:#000;border:none;padding:15px 35px;border-radius:30px;cursor:pointer;font-size:16px;margin-bottom:50px;box-shadow:var(--glow);transition:all 0.3s ease;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+        .schedule-btn:hover{transform:translateY(-5px) scale(1.05);box-shadow:0 0 40px rgba(59,130,246,0.6)}
+        .hero-section{margin-top:40px;animation:fadeInUp 1s ease}
+        .hero-section h2{font-size:36px;margin-bottom:12px;font-weight:700}
+        .title{color:rgba(255,255,255,0.8);font-size:18px;margin-bottom:25px;font-weight:500;min-height:25px}
+        .cursor{animation:blink 1s infinite;color:var(--accent);font-weight:bold}
+        .bio{max-width:700px;margin:0 auto;color:rgba(255,255,255,0.7);font-size:16px;line-height:1.8}
+        .tech-arsenal,.projects,.achievements,.github-stats,.cta{padding:40px 0}
+        .tech-arsenal h3,.projects h3,.achievements h3,.github-stats h3,.cta h3{font-size:24px;margin-bottom:30px}
+        .tech-grid{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+        .tech{background:var(--card);padding:12px 20px;border-radius:30px;font-size:14px;border:1px solid var(--border);transition:all 0.3s ease;cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:600}
+        .tech:hover{background:var(--gradient);color:#000;transform:translateY(-3px) scale(1.05) rotate(5deg);box-shadow:var(--glow);border-color:var(--accent)}
+        .tech-icon{width:20px;height:20px;filter:brightness(0) invert(1)}
+        .tech:hover .tech-icon{filter:brightness(0)}
+        .project{background:var(--card);padding:35px;border-radius:20px;margin-bottom:30px;border:1px solid var(--border);transition:all 0.4s ease;position:relative;overflow:hidden}
+        .project:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--glow), 0 25px 50px rgba(0,0,0,0.4);border-color:var(--accent)}
+        .project h4{margin-bottom:12px;font-size:18px}
+        .project p{color:var(--muted);margin-bottom:16px}
+        .project-links{display:flex;gap:12px}
+        .btn{background:var(--gradient);color:#000;padding:14px 28px;border-radius:30px;text-decoration:none;font-size:14px;font-weight:700;transition:all 0.3s ease;box-shadow:var(--glow);text-transform:uppercase;letter-spacing:0.5px}
+        .btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 0 30px rgba(59,130,246,0.5)}
+        .btn-secondary{background:transparent;color:var(--accent);padding:14px 28px;border:2px solid var(--accent);border-radius:30px;text-decoration:none;font-size:14px;font-weight:700;transition:all 0.3s ease;text-transform:uppercase;letter-spacing:0.5px}
+        .btn-secondary:hover{background:var(--accent);color:#000;transform:translateY(-3px) scale(1.05);box-shadow:var(--glow)}
+        .badges{display:flex;flex-wrap:wrap;gap:8px}
+        .badge{background:var(--card);padding:8px 16px;border-radius:20px;font-size:14px;border:1px solid var(--border)}
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:20px}
+        .stat{text-align:center;background:var(--card);padding:30px;border-radius:20px;border:1px solid var(--border);transition:all 0.4s ease;cursor:pointer;position:relative;overflow:hidden}
+        .stat:hover{transform:translateY(-8px) scale(1.05);box-shadow:var(--glow), 0 20px 40px rgba(0,0,0,0.3);border-color:var(--accent)}
+        .stat .number{display:block;font-size:24px;font-weight:700;color:var(--accent)}
+        .stat .label{font-size:12px;color:var(--muted);margin-top:4px}
+        .cta{text-align:center}
+        .cta p{color:var(--muted);margin:16px 0}
+        .contact-email{color:var(--accent);text-decoration:none;font-size:20px;font-weight:600;transition:all 0.3s ease}
+        .contact-email:hover{color:var(--accent2);transform:scale(1.05)}
+        .social-links{margin-top:20px}
+        @keyframes float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-15px)}}
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes glow{0%{text-shadow:0 0 5px rgba(218,165,32,0.5)}100%{text-shadow:0 0 20px rgba(218,165,32,0.8), 0 0 30px rgba(218,165,32,0.3)}}
+        @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+        @keyframes cosmicShift{0%{transform:rotate(0deg) scale(1)}100%{transform:rotate(0.5deg) scale(1.02)}}
+        @media(max-width:768px){
+          .profile-header h1{font-size:32px}
+          .hero-section h2{font-size:28px}
+          .stats-grid{grid-template-columns:repeat(2,1fr)}
+          .project-links{flex-direction:column;gap:10px}
+          .profile-img{width:120px;height:120px}
+        }
+    </style>
+</head>
+<body>
+    <div id="time" class="time"></div>
+    
+    <header class="profile-header">
+        <div class="container">
+            <div class="profile-picture">
+                <div class="profile-img">KJ</div>
+            </div>
+            <h1>Khushi Jha</h1>
+            <p class="location">Ghaziabad, UP, India</p>
+            <button class="schedule-btn">Schedule a call</button>
+            
+            <div class="hero-section">
+                <h2>Khushi Jha</h2>
+                <p class="title">Full-Stack Developer<span class="cursor">|</span></p>
+                <p class="bio">Full-Stack Developer from India studying at RKGITM, specializing in modern web technologies and open-source development. Passionate about building scalable applications with Next.js and contributing to the developer community through open-source projects.</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="tech-arsenal">
+        <div class="container">
+            <h3>Tech Arsenal</h3>
+            <div class="tech-grid">
+                <span class="tech">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-icon">
+                    JavaScript
+                </span>
+                <span class="tech">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" class="tech-icon">
+                    TypeScript
+                </span>
+                <span class="tech">
+                    <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind" class="tech-icon">
+                    Tailwind
+                </span>
+                <span class="tech">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" class="tech-icon">
+                    React
+                </span>
+                <span class="tech">
+                    <img src="https://www.vectorlogo.zone/logos/nextjs/nextjs-icon.svg" alt="Next.js" class="tech-icon">
+                    Next.js
+                </span>
+                <span class="tech">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" class="tech-icon">
+                    Node.js
+                </span>
+                <span class="tech">
+                    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="tech-icon">
+                    MongoDB
+                </span>
+                <span class="tech">
+                    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git" class="tech-icon">
+                    Git
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            <h3>Featured Projects</h3>
+            
+            <div class="project">
+                <h4>Web Development Quiz</h4>
+                <p>A responsive, interactive quiz application to test web development knowledge across three difficulty levels. Features 15 questions, progress tracking, professional styling with Tailwind CSS, and instant results with user registration.</p>
+                <div class="project-links">
+                    <a href="https://quiz-one-orcin.vercel.app/" class="btn">Live Demo</a>
+                    <a href="https://github.com/khushhjha/QUIZ.git" class="btn-secondary">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h4>React Job Search Application</h4>
+                <p>A modern React.js application for searching jobs by keyword and location with interactive styling. Features real-time search results, mobile-friendly interface, API integration, and modern CSS animations with responsive design.</p>
+                <div class="project-links">
+                    <a href="https://finding-job-gamma.vercel.app/" class="btn">Live Demo</a>
+                    <a href="https://github.com/khushhjha/FindingJob.git" class="btn-secondary">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project">
+                <h4>School Management System</h4>
+                <p>A Next.js application for managing school data with MySQL database. Features form validation, responsive grid layout, image upload functionality, and complete CRUD operations with React Hook Form integration.</p>
+                <div class="project-links">
+                    <a href="https://school-management-orcin-five.vercel.app/" class="btn">Live Demo</a>
+                    <a href="https://github.com/khushhjha/SchoolManagement.git" class="btn-secondary">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="achievements">
+        <div class="container">
+            <h3>Achievements & Badges</h3>
+            <div class="badges">
+                <span class="badge">Full Stack + DevOps</span>
+                <span class="badge">JavaScript (HackerRank)</span>
+                <span class="badge">React (HackerRank)</span>
+                <span class="badge">JavaScript (Udemy)</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="github-stats">
+        <div class="container">
+            <h3>GitHub Contributions</h3>
+            <div class="stats-grid">
+                <div class="stat">
+                    <span class="number">27</span>
+                    <span class="label">contributions in the last year</span>
+                </div>
+                <div class="stat">
+                    <span class="number">10</span>
+                    <span class="label">Followers</span>
+                </div>
+                <div class="stat">
+                    <span class="number">10</span>
+                    <span class="label">Following</span>
+                </div>
+                <div class="stat">
+                    <span class="number">❤️ 200</span>
+                    <span class="label">Love Count</span>
+                </div>
+                <div class="stat">
+                    <span class="number">166</span>
+                    <span class="label">Views</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h3>Let's Build Something Amazing</h3>
+            <p>Ready to bring your ideas to life? I'm always excited to collaborate on innovative projects and help transform your vision into reality.</p>
+            <a href="mailto:khushijha671@gmail.com" class="contact-email">khushijha671@gmail.com</a>
+            <div class="social-links">
+                <a href="http://www.linkedin.com/in/khushi-jha-1b7a68386" class="btn-secondary">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Real-time clock
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('time').textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>

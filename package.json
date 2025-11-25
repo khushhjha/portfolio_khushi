@@ -1,0 +1,23 @@
+{
+  "name": "khushi-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": ".",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "npm run build:react && npm run copy:build",
+    "build:react": "cd portfolio_Khushi && npm run build",
+    "copy:build": "xcopy portfolio_Khushi\\build dist /E /I /Y",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
